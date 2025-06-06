@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Prayer Times";
+}
+
+<div class="container">
+    <div class="bg-pattern"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+
+        </div>
+    </header>
+
+    <!-- City / Date block -->
+    <div class="city-info">
+        <h1 class="city-name" id="cityName">—</h1>
+        <p class="islamic-date" id="islamicDate">—</p>
+        <p class="gregorian-date" id="gregorianDate">—</p>
+    </div>
+
+    <!-- Main -->
+    <div class="main-content">
+        <div id="homeScreen">
+            <!-- Top grid -->
+            <div class="prayer-times-grid">
+                <div class="prayer-card">
+                    <div class="prayer-header"><i data-lucide="sunrise" width="18" height="18"></i><span class="prayer-name">Fajr</span></div>
+                    <div class="prayer-time" id="timeFajr">--:--</div>
+                </div>
+                <div class="prayer-card">
+                    <div class="prayer-header"><i data-lucide="sun" width="18" height="18"></i><span class="prayer-name">Sunrise</span></div>
+                    <div class="prayer-time" id="timeSunrise">--:--</div>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="countdown-timer">
+                <h3 class="next-prayer-text" id="nextPrayerLabel">Next prayer in</h3>
+                <div class="countdown-display" id="countdown">--:--:--</div>
+            </div>
+
+            <!-- Circle -->
+            <div class="prayer-circle">
+                <div class="circle-container">
+                    <div class="outer-circle">
+                        <div class="inner-circle" id="prayerCircle">
+                            <div class="circle-content">
+                                <div class="circle-label">Current</div>
+                                <div class="circle-prayer" id="currentPrayer">—</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom grid -->
+            <div class="bottom-prayer-times">
+                <div class="bottom-prayer-card">
+                    <div class="bottom-prayer-header"><i data-lucide="sun" width="16" height="16"></i><span class="bottom-prayer-name">Dhuhr</span></div>
+                    <div class="bottom-prayer-time" id="timeDhuhr">--:--</div>
+                </div>
+                <div class="bottom-prayer-card">
+                    <div class="bottom-prayer-header"><i data-lucide="sun" width="16" height="16"></i><span class="bottom-prayer-name">Asr</span></div>
+                    <div class="bottom-prayer-time" id="timeAsr">--:--</div>
+                </div>
+                <div class="bottom-prayer-card">
+                    <div class="bottom-prayer-header"><i data-lucide="sunset" width="16" height="16"></i><span class="bottom-prayer-name">Maghrib</span></div>
+                    <div class="bottom-prayer-time" id="timeMaghrib">--:--</div>
+                </div>
+                <div class="bottom-prayer-card">
+                    <div class="bottom-prayer-header"><i data-lucide="moon" width="16" height="16"></i><span class="bottom-prayer-name">Isha</span></div>
+                    <div class="bottom-prayer-time" id="timeIsha">--:--</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

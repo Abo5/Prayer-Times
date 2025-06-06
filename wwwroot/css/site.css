@@ -1,0 +1,150 @@
+/* =========================================================
+   Reset + أساسيات
+========================================================= */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* =========================================================
+   الخط المخصّص
+========================================================= */
+@font-face{
+  font-family:"SFProUltraLightItalic";
+  src:url("/fonts/SFPRODISPLAYULTRALIGHTITALIC.woff2") format("woff2");
+  font-weight:200;
+  font-style:italic;
+  font-display:swap;
+}
+
+/* =========================================================
+   استقرار الصفحة ومنع التفقّع
+========================================================= */
+html{
+  background:#0f172a;          /* fallback يطابق آخر لون بالتدرّج */
+  overscroll-behavior:none;    /* لا Bounce عالمي */
+  height:100%;
+}
+
+body{
+  font-family:"SFProUltraLightItalic","Inter",sans-serif;
+  background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+  overscroll-behavior:contain; /* إيقاف سحب قوي يظهر ألوان خارجية */
+}
+
+/* =========================================================
+   حاوية الصفحة
+========================================================= */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:0 20px;
+}
+
+/* =========================================================
+   خلفية شعاعية ثابتة
+========================================================= */
+.bg-pattern{
+  position:fixed;              /* كان absolute → الآن ثابت */
+  inset:0;
+  z-index:-1;
+  background:radial-gradient(circle at 50% 50%,rgba(59,130,246,.1),transparent 50%);
+  pointer-events:none;
+}
+
+/* =========================================================
+   رأس الصفحة (الشعار حُذف سابقاً)
+========================================================= */
+.header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 0;font-size:16px;font-weight:500;
+}
+
+/* =========================================================
+   معلومات المدينة والتاريخ
+========================================================= */
+.city-info{text-align:center;padding:24px 20px;margin-bottom:20px}
+.city-name{font-size:32px;font-weight:300;letter-spacing:.05em;margin-bottom:8px}
+.islamic-date{font-size:14px;color:#94a3b8;font-weight:500;margin-bottom:4px}
+.gregorian-date{font-size:12px;color:#64748b}
+
+/* =========================================================
+   المحتوى الرئيسي
+========================================================= */
+.main-content{
+  display:flex;flex-direction:column;align-items:center;flex:1;margin-bottom:50px;
+}
+@media(min-width:768px){
+  .main-content{flex-direction:row;gap:30px;justify-content:center;align-items:flex-start}
+}
+
+/* =========================================================
+   بطاقات الأوقات العلوية
+========================================================= */
+.prayer-times-grid{
+  display:flex;gap:16px;padding:0 20px;margin-bottom:32px;width:100%;max-width:600px;
+}
+.prayer-card{
+  flex:1;background-color:rgba(255,255,255,.1);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px;text-align:center;transition:.3s;
+}
+.prayer-card.active{border-color:rgba(96,165,250,.5);animation:pulse 2s infinite}
+@keyframes pulse{
+  0%  {box-shadow:0 0 0 0 rgba(96,165,250,.5)}
+  70% {box-shadow:0 0 0 10px rgba(96,165,250,0)}
+  100%{box-shadow:0 0 0 0 rgba(96,165,250,0)}
+}
+.prayer-header{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px}
+.prayer-name{font-size:14px;color:#cbd5e1;font-weight:500}
+.prayer-time{font-size:18px;font-weight:600;font-family:"Inter",monospace}
+
+/* =========================================================
+   عدّاد الصلاة التالية
+========================================================= */
+.countdown-timer{text-align:center;padding:32px 0;margin:0 auto}
+.next-prayer-text{font-size:16px;font-weight:500;color:#94a3b8;margin-bottom:16px}
+.countdown-display{
+  font-size:48px;font-weight:300;font-family:"Inter",monospace;letter-spacing:.05em;color:#60a5fa;
+}
+
+/* =========================================================
+   الدائرة (مرفوعة)
+========================================================= */
+.prayer-circle{display:flex;justify-content:center;padding:16px 0;margin-top:-24px}
+.circle-container{position:relative;width:288px;height:288px}
+.outer-circle{
+  width:100%;height:100%;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(96,165,250,.2)0%,rgba(167,139,250,.2)50%,rgba(96,165,250,.2)100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.inner-circle{
+  width:240px;height:240px;border-radius:50%;background-color:rgba(0,0,0,.3);
+  backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.circle-content{text-align:center}
+.circle-label{font-size:14px;color:#94a3b8;margin-bottom:4px}
+.circle-prayer{font-size:18px;font-weight:600}
+
+/* =========================================================
+   الشبكة السفلية
+========================================================= */
+.bottom-prayer-times{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0 20px;margin:8px 0 24px;
+  width:100%;max-width:600px;
+}
+@media(min-width:640px){
+  .bottom-prayer-times{grid-template-columns:repeat(4,1fr)}
+}
+.bottom-prayer-card{
+  background-color:rgba(0,0,0,.3);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center;transition:.3s;
+}
+.bottom-prayer-card:hover{background-color:rgba(0,0,0,.4)}
+.bottom-prayer-header{display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:8px}
+.bottom-prayer-name{font-size:12px;color:#94a3b8;font-weight:500}
+.bottom-prayer-time{font-size:14px;font-weight:600;font-family:"Inter",monospace}

@@ -1,0 +1,29 @@
+﻿@*
+  Views/Shared/_Layout.cshtml
+  قالب بسيط يحمّل CSS و JS ويترك المكان لـ @RenderBody()
+*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fajr</title>
+
+    <!-- Fonts & Icons -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.css" rel="stylesheet" />
+
+    <!-- Site CSS (يجلب من wwwroot/css) -->
+    <link rel="stylesheet" asp-append-version="true" href="~/css/site.css" />
+</head>
+<body>
+    @RenderBody()
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script asp-append-version="true" src="~/js/site.js"></script>
+
+    @* مقطع اختياري لصفحات تحتاج سكربت إضافي *@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
